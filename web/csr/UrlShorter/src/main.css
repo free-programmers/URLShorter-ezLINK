@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --primary: #FCA311;
+    --secondary: #14213D;
+    --gray: #E5E5E5;
+    --black: #000;
+    --white: #fff;
+}
+
+.tc-primary {
+    color: var(--primary);
+}
+
+.tc-secondary {
+    color: var(--secondary);
+}
+
+.tc-gray {
+    color: var(--gray);
+}
+
+.tc-black {
+    color: var(--black);
+}
+
+.tc-white {
+    color: var(--white);
+}
+
+.bc-primary {
+    background-color: var(--primary);
+}
+
+.bc-secondary {
+    background-color: var(--secondary);
+}
+
+.bc-gray {
+    background-color: var(--gray);
+}
+
+.bc-black {
+    background-color: var(--black);
+}
+
+.bc-white {
+    background-color: var(--white);
+}

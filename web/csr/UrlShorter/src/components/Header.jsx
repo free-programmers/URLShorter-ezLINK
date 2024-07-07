@@ -4,7 +4,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 export default function Header() {
     return (
         <>
-            <header className="bg-white">
+            <header className="bg-white rounded-xl mb-3" style={{ "box-shadow": "0 0 10px black" }}>
                 <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
@@ -131,7 +131,7 @@ export default function Header() {
                     {/* <!-- Background backdrop, show/hide based on slide-over state. --> */}
 
                 </div>
-            </header>
+            </header >
 
 
         </>
