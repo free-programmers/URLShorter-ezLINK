@@ -1,7 +1,7 @@
 const Hero = () => {
     return (
         <>
-            <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32 rounded-xl">
+            <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32 rounded-xl" style={{ "box-shadow": "0 0 10px 1px var(--primary)" }}>
                 <div className="flex justify-center align-center">
                     <div className="flex flex-col justify-center align-center">
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Smart and powerful short links</h2>
