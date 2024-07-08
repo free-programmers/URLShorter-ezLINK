@@ -16,15 +16,19 @@ const Hero = () => {
                 var successful = document.execCommand('copy');
                 var msg = successful ? 'successful' : 'unsuccessful';
                 Swal.fire({
+                    position: "top-end",
                     icon: "success",
-                    title: "Success!",
-                    text: "Your url succussfully copied!",
+                    title: "Your url succussfully copied!",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             } catch (err) {
                 Swal.fire({
+                    position: "top-end",
                     icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
+                    title: "Something went wrong!",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             }
         }
