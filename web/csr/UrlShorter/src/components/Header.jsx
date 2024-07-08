@@ -1,6 +1,6 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faUserAlt, faUserAltSlash } from '@fortawesome/free-solid-svg-icons'
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Header() {
