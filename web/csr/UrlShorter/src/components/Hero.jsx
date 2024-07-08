@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import './../Javascripts/Hero';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 
 const Hero = () => {
     const inputRef = useRef(null);
@@ -14,9 +15,17 @@ const Hero = () => {
             try {
                 var successful = document.execCommand('copy');
                 var msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Copying text command was ' + msg);
+                Swal.fire({
+                    icon: "success",
+                    title: "Success!",
+                    text: "Your url succussfully copied!",
+                });
             } catch (err) {
-                console.error('Oops, unable to copy', err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
             }
         }
     };
@@ -35,7 +44,7 @@ const Hero = () => {
                                 <button type="submit" className="flex-none rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bc-primary hover:bg-cyan-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Shorten</button>
                             </div>
                             <div className="relative w-full max-w-sm mt-3">
-                                <input ref={inputRef} readOnly id="ShortedUrl" type="text" autoComplete="email" required className="w-full pr-12 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="shorted link placed here" />
+                                <input disabled ref={inputRef} readOnly id="ShortedUrl" type="text" autoComplete="email" required className="w-full pr-12 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="shorted link placed here" />
                                 <button onClick={copyToClipboard} className="absolute inset-y-0 right-0 px-3 flex items-center text-white hover:text-indigo-500">
                                     <FontAwesomeIcon className="tc-primary text-xl" icon={faCopy} />
                                 </button>
