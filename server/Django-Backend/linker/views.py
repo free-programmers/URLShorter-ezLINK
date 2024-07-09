@@ -43,7 +43,6 @@ def show_alias_link_info(request, link):
         data = {**serializer.data, 'target-url': result.link.url_address}
         return Response(data, status=status.HTTP_200_OK)
 
-
     return Response({"status": "failed", "message": "there is no short link by given url address"}, status=status.HTTP_404_NOT_FOUND)
 
 
@@ -56,5 +55,6 @@ def resolve_alias_link(request, link):
     if result.exists():
         result = result.first()
         return HttpResponseRedirect(result.link.url_address)
+        
     return Response({"status": "failed", "message": "there is no short link by given url address"}, status=status.HTTP_404_NOT_FOUND)
 
