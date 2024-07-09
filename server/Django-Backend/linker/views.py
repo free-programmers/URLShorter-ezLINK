@@ -23,7 +23,10 @@ def short_linker(request):
     new_link = Link()
     new_link.url_address = link
     short_link = new_link.generate_short_link()
-    return Response({"status": "success", "message": "short link created successfully", "short-link": short_link.slug}, status=status.HTTP_200_OK)
+
+    short_link = reverse('linker:resolve-short-links', args=[short_link.slug])  # path
+    short_link = request.build_absolute_uri(short_link)  # absolute url
+    return Response({"status": "success", "message": "short link created successfully", "short-link": short_link}, status=status.HTTP_200_OK)
 
 
 
