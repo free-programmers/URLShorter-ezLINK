@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.contrib.admin import register
-from linker.models import Link, LinkToShortLink
+from linker.models import Link, AliasLink
 
 
 class LinkInlineAdmin(admin.TabularInline):
-    model = LinkToShortLink
+    model = AliasLink
     extra = 3
 
 @register(Link)

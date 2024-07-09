@@ -20,19 +20,19 @@ class Link(BaseModel):
                 default_length += 1
 
             short_link_token = generate_random_string(length=default_length)
-            result = LinkToShortLink.objects.filter(slug=short_link_token).all()
+            result = AliasLink.objects.filter(slug=short_link_token).all()
             if result.exists():
                 counter += 1
                 continue
             else:
                 self.save()
-                obj = LinkToShortLink.objects.create(slug=short_link_token, link=self)
+                obj = AliasLink.objects.create(slug=short_link_token, link=self)
                 obj.save()
                 return obj
 
 
 
-class LinkToShortLink(BaseModel):
+class AliasLink(BaseModel):
     slug = models.SlugField(max_length=2048, unique=True, null=False)
     link = models.OneToOneField(Link, related_name='short_link', null=False, on_delete=models.CASCADE)
 
