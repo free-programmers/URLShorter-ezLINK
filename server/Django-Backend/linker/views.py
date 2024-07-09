@@ -1,5 +1,5 @@
-from django.shortcuts import render
 from django.urls import reverse
+from django.http import HttpResponseRedirect
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -7,6 +7,7 @@ from linker.models import Link, LinkToShortLink
 
 @api_view(['POST'])
 def short_linker(request):
+    """create a shot alias link for a link if link already exists return its alis """
     link = request.POST.get("url", "").strip()
     if not link:
         return Response({"status": "failed", "message": "missing url param in post data"}, status=status.HTTP_400_BAD_REQUEST)
@@ -28,11 +29,24 @@ def short_linker(request):
 
 
 @api_view(['GET'])
-def resolve_short_links(request, link):
-    result =LinkToShortLink.objects.prefetch_related('link').filter(slug=link).all()
+def show_resolve_short_links(request, link):
+    """return an alias information for a link"""
+    result = LinkToShortLink.objects.prefetch_related('link').filter(slug=link).all()
     if result.exists():
         result = result.first()
         return Response({"status": "success", "message": "short link resolved successfully,", "original-url": result.link.url_address}, status=status.HTTP_200_OK)
 
+    return Response({"status": "failed", "message": "there is no short link by given url address"}, status=status.HTTP_404_NOT_FOUND)
+
+
+
+
+@api_view(['GET'])
+def resolve_short_links(request, link):
+    """Redirect to an alias short link """
+    result = LinkToShortLink.objects.prefetch_related('link').filter(slug=link).all()
+    if result.exists():
+        result = result.first()
+        return HttpResponseRedirect(result.link.url_address)
     return Response({"status": "failed", "message": "there is no short link by given url address"}, status=status.HTTP_404_NOT_FOUND)
 
