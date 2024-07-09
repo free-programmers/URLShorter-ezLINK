@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.contrib.admin import register
-
 from linker.models import Link, LinkToShortLink
 
 
@@ -11,4 +10,4 @@ class LinkInlineAdmin(admin.TabularInline):
 @register(Link)
 class LinkAdmin(admin.ModelAdmin):
     list_display = ('url_address', 'created_time')
-    inlines = LinkInlineAdmin
+    inlines = (LinkInlineAdmin, )
