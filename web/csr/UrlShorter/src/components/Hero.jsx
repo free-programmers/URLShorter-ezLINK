@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
-import 'sweetalert2/src/sweetalert2.scss';
+import 'toastr/build/toastr.min.css';
+import toastr from 'toastr';
 import axios from 'axios';
 
 const Hero = () => {
@@ -21,27 +21,14 @@ const Hero = () => {
             if (response.data) {
                 const newShortUrl = response.data["short-link"];
                 setShortUrl(newShortUrl);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'URL shortened successfully!',
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
+                toastr.success("URL shortened successfully!");
             }
         } catch (error) {
             let errorMessage = 'Failed to shorten URL!';
             if (error.response && error.response.data) {
                 errorMessage = error.response.data.message || errorMessage;
             }
-
-            Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: errorMessage,
-                showConfirmButton: false,
-                timer: 1500,
-            });
+            toastr.error(errorMessage);
         }
     };
 
@@ -52,21 +39,9 @@ const Hero = () => {
 
             try {
                 document.execCommand('copy');
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'URL copied to clipboard!',
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
+                toastr.success("URL copied to clipboard!");
             } catch (err) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: 'Failed to copy URL!',
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
+                toastr.error("Failed to copy URL!");
             }
         }
     };
@@ -85,7 +60,7 @@ const Hero = () => {
                                 <button type="button" onClick={GetShort} className="flex-none rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bc-primary hover:bg-cyan-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Shorten</button>
                             </div>
                             <div className="relative w-full max-w-sm mt-3">
-                                <input ref={inputRef} readOnly id="ShortedUrl" type="text" value={shortUrl} className="w-full pr-12 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="shortened link placed here" />
+                                <input disabled ref={inputRef} readOnly id="ShortedUrl" type="text" value={shortUrl} className="w-full pr-12 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="shortened link placed here" />
                                 <button onClick={copyToClipboard} className="absolute inset-y-0 right-0 px-3 flex items-center text-white hover:text-indigo-500">
                                     <FontAwesomeIcon className="tc-primary text-xl" icon={faCopy} />
                                 </button>
