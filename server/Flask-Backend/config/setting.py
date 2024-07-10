@@ -2,6 +2,7 @@ import os
 import datetime
 from pathlib import Path
 
+
 import redis
 from dotenv import load_dotenv
 from core.utils import generate_random_string
@@ -20,6 +21,10 @@ class Setting:
         print("SECRET_KEY was not found in .env file, fall back into generate_random_string() function. ")
 
     SECRET_KEY = os.environ.get("APP_SECRET_KEY", generate_random_string())
+
+    API_TITLE = "UrlShorter API"
+    API_VERSION = "v1"
+    OPENAPI_VERSION = "3.0.2"
 
     ADMIN_LOGIN_TOKEN = os.environ.get("ADMIN_LOGIN_TOKEN", "123654")
 
@@ -47,7 +52,7 @@ class Setting:
     DATABASE_USERNAME = os.environ.get("DATABASE_USERNAME", "")
     DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD", "")
     DATABASE_TABLE_PREFIX_NAME = os.environ.get("DATABASE_TABLE_PREFIX_NAME", "")
-    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+    SQLALCHEMY_DATABASE_URI = f"sqlite:///database.sqlite3"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Redis Config
