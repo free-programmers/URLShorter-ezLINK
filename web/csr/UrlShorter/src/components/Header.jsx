@@ -1,6 +1,7 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import logo from './../assets/logos/logo-no-background.png'
 
 
 export default function Header() {
@@ -58,7 +59,7 @@ export default function Header() {
                         </div>
                         <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                             <div className="flex flex-shrink-0 items-center">
-                                <img className="h-8 w-auto" src="https://avatars.githubusercontent.com/u/147334352?s=48&v=4" alt="Your Company" />
+                                <img className="h-8 w-auto" src={logo} alt="Your Company" />
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
                                 <div className="flex space-x-4">
