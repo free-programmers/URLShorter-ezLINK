@@ -1,11 +1,7 @@
-## clone of https://bitly.cx/
+# 🚀 EZ link is a URL shorter service that helps you make short URLs.
 
 
-build with react+vite for client-side 
-and Python+Django (and also Flask) for backend side
-
-
-
+🔨 Build with: react+vite and Django+Flask
 
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/free-programmers/URLShorter-ezLINK">
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/free-programmers/URLShorter-ezLINK"> 
