@@ -8,7 +8,7 @@
     python
         Django+Flask
 
-### demo
+## 🖼️ demo
 
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/free-programmers/URLShorter-ezLINK">
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/free-programmers/URLShorter-ezLINK"> 
@@ -18,13 +18,13 @@
 ![image](https://github.com/free-programmers/URLShorter/assets/57840939/ba762717-2b3b-4695-b91e-bfcb363a2ebe)
 
 
-## how to install
+## 🚧 how to install
 
         
     git clone https://github.com/free-programmers/URLShorter-ezLINK
 
 
-## install dependencies
+## 📍install dependencies
 
     cd web
     npm install
@@ -33,3 +33,5 @@
     cd Django
     pip install -r requirements.txt
     python3 manage.py runserver
+
+
