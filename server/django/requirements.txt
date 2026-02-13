@@ -15,7 +15,7 @@ pure-eval==0.2.2
 Pygments==2.18.0
 redis==5.0.7
 six==1.16.0
-sqlparse==0.5.0
+sqlparse==0.5.4
 stack-data==0.6.3
 traitlets==5.14.3
 tzdata==2024.1
