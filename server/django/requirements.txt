@@ -12,7 +12,7 @@ matplotlib-inline==0.1.7
 parso==0.8.4
 prompt_toolkit==3.0.47
 pure-eval==0.2.2
-Pygments==2.18.0
+Pygments==2.20.0
 redis==5.0.7
 six==1.16.0
 sqlparse==0.5.0
